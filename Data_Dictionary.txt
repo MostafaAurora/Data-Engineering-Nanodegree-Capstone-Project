@@ -1,0 +1,106 @@
+ Data Dictionary 
+
+
+
+-------
+Airport
+-------
+- ident: Unique identifier (PK)
+- type: Airport type
+- iata_code: Airport IATA Code
+- name: Airport name
+- iso_country: ISO Code of the airport's country
+- iso_region: ISO Code for the airport's region
+- municipality: City/Municipality where the airport is located
+- gps_code: Airport GPS Code
+- coordinates: Airport coordinates
+- elevation_ft: Airport altitude
+
+
+-------
+Country
+-------
+- country_code: 3 digit code for immigrant country of residence (PK)
+- country: Name of country
+
+
+-----------
+Temperature
+-----------
+- temperature_id: Unique Identifier (PK)
+- country: Name of country
+- average_temperature: Average temperature in celsius
+- average_temperature_uncertainty: 95% confidence interval around average temperature
+
+
+-------
+Migrant
+-------
+- migrant_id: Unique Identifier (PK)
+- birth_year: 4 digit year of birth
+- gender: Non-immigrant sex
+
+
+-----
+State
+-----
+- state_code: Code of the state (PK)
+- state: US State
+- median_age: The median population age
+- total_population: Total population
+- male_population: Male population total
+- female_population: Female population total
+- foreign_born: Number of residents who were not born in the state
+- average_household_size: Average size of houses in the state
+
+
+------
+Status
+------
+- status_flag_id: Unique identifier (PK)
+- arrival_flag: Arrival Flag - admitted or paroled into the U.S.
+- departure_flag: Departure Flag - Departed, lost I-94 or is deceased
+- match_flag: Match flag - Match of arrival and departure records
+
+
+----
+Time
+----
+- arrdate: Arrival Date in the USA (PK)
+- arrival_date: Arrival Date
+- day: Day of arrival
+- month: Month of arrival
+- year: Year of arrival
+- week: Week of arrival
+- weekday: Day of week of arrival
+
+
+----
+Visa
+----
+- visa_id: Unique identifier (PK)
+- i94visa: Visa codes collapsed into three categories
+- visatype: Class of admission legally admitting the non-immigrant to temporarily stay in U.S.
+- visapost: Department of State where where Visa was issued
+
+
+-----------
+Immigration
+-----------
+- cicid: Unique identifier (PK)
+- i94res: 3 digit code for immigrant country of residence
+- depdate: Departure Date from the USA
+- i94mode: Mode of transportation (1 = Air; 2 = Sea; 3 = Land; 9 = Not reported)
+- i94port: Port of admission
+- i94cit: 3 digit code for immigrant country of birth
+- i94addr: USA State of arrival
+- airline: Airline used to arrive in U.S.
+- fltno: Flight number of Airline used to arrive in U.S.
+- ident: Unique identifier (FK)
+- country_code: 3 digit code for immigrant country of residence (FK)
+- temperature_id: Unique identifier (FK)
+- migrant_id: Unique identifier (FK)
+- status_flag_id: Unique identifier (FK)
+- visa_id: Unique identifier (FK)
+- state_code: Code of the state (FK)
+- arrdate: Arrival Date in the USA (FK)
